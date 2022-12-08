@@ -5,6 +5,26 @@ public class Main {
         int clientOS = 1;
         int productionYear = 2015;
         printInfoAboutDevice(clientOS, productionYear);
+        for (int deliveryDistance = 0; deliveryDistance <=200; deliveryDistance++) {
+            int deliveryDays = summaDeliviryDays(deliveryDistance);
+            System.out.println("Потребуется дней"+ deliveryDays);
+        }
+
+    }
+    private static int summaDeliviryDays(int deliveryDistance) {
+        int deliveryDays;
+        int startInterval = 20;
+        if(deliveryDistance < 0) {
+            return -1;
+        }
+        if (deliveryDistance <=startInterval) {
+            deliveryDays = 1;
+        }
+        else {
+            deliveryDays = 1+(int) Math.ceil((deliveryDistance - startInterval) /400 );
+
+        }
+        return deliveryDays;
 
     }
 public static String getOSbyType (int type) {
